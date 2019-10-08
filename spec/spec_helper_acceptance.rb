@@ -81,7 +81,7 @@ end
 
 # If test is run on Debian 9 it does not seem possible to catch the shutdown command.
 # As such code has beem implanted so that the loss of connection is caught instead.
-def retry_shutdown_abort(agent, max_retries = 6)
+def retry_shutdown_abort(agent, max_retries = 12)
   sleep 55 if (fact('operatingsystem') =~ %r{SLES} && (fact('operatingsystemrelease') =~ %r{^15\.}))
   i = 0
   while i < max_retries
